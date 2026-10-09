@@ -25,3 +25,10 @@ Thumbs.db
 *.swo
 .vscode/
 .idea/
+
+# 数据集
+cats_and_dogs/
+cats_and_dogs.zip
+best_cats_dogs.weights.h5
+# mac垃圾目录
+__MACOSX/
