@@ -22,7 +22,7 @@ A2 --> L[L = BCE(A₂, y)]
 y[y] --> L  
 ### 2.链式反向求导公式
 
-**单样本**
+**单样本**  
 $$  
 \begin{cases}  
 \mathrm{d}Z_2 = A_2 - y \\[4pt]  
@@ -35,7 +35,7 @@ $$
 \end{cases}  
 $$
 
-**Batch 版本求导公式**
+**Batch 版本求导公式**  
 $$  
 \begin{cases}  
 \mathrm{d}Z_2 = A_2 - y \\[4pt]  
