@@ -24,28 +24,28 @@ y[y] --> L
 
 **单样本**
 $$
-\begin{cases}
-\mathrm{d}Z_2 = A_2 - y \\[4pt]
-\mathrm{d}W_2 = A_1^\top \mathrm{d}Z_2 \\[4pt]
-\mathrm{d}b_2 = \mathrm{d}Z_2 \\[4pt]
-\mathrm{d}A_1 = \mathrm{d}Z_2\, W_2^\top \\[4pt]
-\mathrm{d}Z_1 = \mathrm{d}A_1 \odot \mathbf{1}(Z_1>0) \\[4pt]
-\mathrm{d}W_1 = X^\top \mathrm{d}Z_1 \\[4pt]
-\mathrm{d}b_1 = \mathrm{d}Z_1
-\end{cases}
+\begin{cases}  
+\mathrm{d}Z_2 = A_2 - y \\[4pt]  
+\mathrm{d}W_2 = A_1^\top \mathrm{d}Z_2 \\[4pt]  
+\mathrm{d}b_2 = \mathrm{d}Z_2 \\[4pt]  
+\mathrm{d}A_1 = \mathrm{d}Z_2\, W_2^\top \\[4pt]  
+\mathrm{d}Z_1 = \mathrm{d}A_1 \odot \mathbf{1}(Z_1>0) \\[4pt]  
+\mathrm{d}W_1 = X^\top \mathrm{d}Z_1 \\[4pt]  
+\mathrm{d}b_1 = \mathrm{d}Z_1  
+\end{cases}  
 $$
 
 **Batch 版本求导公式**
 $$
-\begin{cases}
-\mathrm{d}Z_2 = A_2 - y \\[4pt]
-\mathrm{d}W_2 = \dfrac{1}{N}A_1^\top \mathrm{d}Z_2 \\[4pt]
-\mathrm{d}b_2 = \dfrac{1}{N}\sum \mathrm{d}Z_2 \\[4pt]
-\mathrm{d}A_1 = \mathrm{d}Z_2\, W_2^\top \\[4pt]
-\mathrm{d}Z_1 = \mathrm{d}A_1 \odot \mathbf{1}(Z_1>0) \\[4pt]
-\mathrm{d}W_1 = \dfrac{1}{N}X^\top \mathrm{d}Z_1 \\[4pt]
-\mathrm{d}b_1 = \dfrac{1}{N}\sum \mathrm{d}Z_1
-\end{cases}
+\begin{cases}  
+\mathrm{d}Z_2 = A_2 - y \\[4pt]  
+\mathrm{d}W_2 = \dfrac{1}{N}A_1^\top \mathrm{d}Z_2 \\[4pt]  
+\mathrm{d}b_2 = \dfrac{1}{N}\sum \mathrm{d}Z_2 \\[4pt]  
+\mathrm{d}A_1 = \mathrm{d}Z_2\, W_2^\top \\[4pt]  
+\mathrm{d}Z_1 = \mathrm{d}A_1 \odot \mathbf{1}(Z_1>0) \\[4pt]  
+\mathrm{d}W_1 = \dfrac{1}{N}X^\top \mathrm{d}Z_1 \\[4pt]  
+\mathrm{d}b_1 = \dfrac{1}{N}\sum \mathrm{d}Z_1  
+\end{cases}  
 $$
 
 
