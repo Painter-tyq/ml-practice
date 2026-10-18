@@ -19,6 +19,17 @@ outputs = layers.Dense(1, activation='sigmoid')(x)
 
 model = models.Model(inputs=inputs, outputs=outputs)
 
+# ========== 第9题 模型结构图 ==========
+from tensorflow.keras.utils import plot_model
+plot_model(
+    model,
+    to_file="model_structure.png",
+    show_shapes=True,
+    show_layer_names=True,
+    dpi=300
+)
+print(" 模型结构图已保存 model_structure.png")
+
 # 跳过Input层，取【卷积、池化】的输出，从下标1开始取前3层
 layer_outputs = [layer.output for layer in model.layers[1:4]]
 activation_model = models.Model(inputs=model.input, outputs=layer_outputs)
