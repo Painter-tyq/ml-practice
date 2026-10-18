@@ -42,7 +42,12 @@ validation_generator = val_datagen.flow_from_directory(
     batch_size=20,
     class_mode='binary'
 )
-
+test_generator = val_datagen.flow_from_directory(
+    'cats_and_dogs/test',
+    target_size=(150,150),
+    batch_size=20,
+    class_mode='binary'
+)
 # 保存最优模型权重
 callbacks = [
     tf.keras.callbacks.ModelCheckpoint(
@@ -63,3 +68,35 @@ history = model.fit(
 
 print(" 训练结束，最优权重已保存 best_cats_dogs.weights.h5")
 
+import matplotlib.pyplot as plt
+
+# 1. 设置画布，画两张图（左边 Loss，右边 Accuracy）
+plt.figure(figsize=(12, 4))
+
+# 2. 画 Loss 曲线
+plt.subplot(1, 2, 1)
+plt.plot(history.history['loss'], label='Train Loss', color='blue')
+plt.plot(history.history['val_loss'], label='Val Loss', color='red')
+plt.title('Loss Curve')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+plt.grid(True)
+
+# 3. 画 Accuracy 曲线
+plt.subplot(1, 2, 2)
+acc_key = 'accuracy' if 'accuracy' in history.history else 'acc'
+val_acc_key = 'val_accuracy' if 'val_accuracy' in history.history else 'val_acc'
+
+plt.plot(history.history[acc_key], label='Train Acc', color='blue')
+plt.plot(history.history[val_acc_key], label='Val Acc', color='red')
+plt.title('Accuracy Curve')
+plt.xlabel('Epochs')
+plt.ylabel('Accuracy')
+plt.legend()
+plt.grid(True)
+
+# 4. 保存并显示
+plt.tight_layout()
+plt.savefig("training_curves.png")
+print("曲线图已保存为 training_curves.png")

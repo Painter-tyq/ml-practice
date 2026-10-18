@@ -71,7 +71,7 @@ for i in range(min(6, len(error_imgs))):
     plt.title(f"True:{class_names[error_true_label[i]]}, Pred:{class_names[error_pred_label[i]]}")
     plt.axis("off")
 plt.tight_layout()
-plt.show()
+plt.savefig("error_samples.png")
 
 print(f"找到预测错误样本总数：{len(error_imgs)}")
 
@@ -90,7 +90,7 @@ for img_batch, label_batch in val_ds.take(1):
 class_names = ['cats','dogs']
 # 推理
 pred = model.predict(img_batch, verbose=0)
-if pred < 0.5:
+if pred[0][0] < 0.5:
     result = class_names[0]
     confidence = 1 - pred[0][0]
 else:
@@ -107,6 +107,5 @@ plt.imshow(img_np)
 plt.title(f"True:{class_names[true_label]}, Pred:{result}, Conf:{confidence:.3f}")
 plt.axis("off")
 plt.savefig("infer_result.png", dpi=300, bbox_inches="tight")
-# plt.show()
 print(" 预测图片已保存 infer_result.png")
 
